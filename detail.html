@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>my-trip-advisor-detail</title>
+    <!-- css는 jqeury ui -> style.css 순으로 불러와야 함 -->
+    <link rel="stylesheet" href="libs/jquery-ui/jquery-ui.min.css">
+    <link rel="stylesheet" href="styles/styles.css"/>
+    <!--  jqeury를 가장 먼저 불러와야 함 -->
+    <script src="libs/jquery-3.6.0.min.js"></script>
+    <script src="libs/galleria/galleria.min.js"></script>
+    <script src="scripts/detail.js"></script>
+</head>
+<body>
+<div id="container">
+    <div id="header" class="inverted">
+        <div>
+            <a href="index.html"><span></span></a>
+            <div class="menu-items right">
+                <a href="mytrip.html">마이트립</a>
+                <img src="images/line_maintop_gray.png"/>
+                <a href="register.html">회원가입</a>
+            </div>
+        </div>
+    </div>
+    <div id="body" class="detail">
+        <div class="detail-container">
+            <div class="detail-header">
+                <img src="images/icon_list_location.png"/>
+                <div clas="detail-header-name"></div> | <span class="detail-header-city-name"></span>
+                <button class="btn-register">여행지 등록하기</button>
+            </div>
+            <div id="detail-images"></div>
+            <div class="detail-desc">
+                <div class="detail-title">장소 소개</div>
+                <div class="detail-desc-text"></div>
+            </div>
+            <div class="detail-map">
+                <div class="detail-map">지도</div>
+                <div id="map"></div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
