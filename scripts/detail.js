@@ -16,10 +16,27 @@ function showMap() {
     map = new google.maps.Map(document.getElementById('map'), { 
         zoom:12,
         center: {
-            lat:33.3617,
-            lng:126.5292
+            lat:33.3617, //위도
+            lng:126.5292 //경도
         }
     })
+}
+
+/**
+ * 지도에 마커 추가하기
+ */
+function showMarker(lat, lng) {
+    var pos = {
+        lat: lat,
+        lng: lng
+    };
+
+    new google.maps.Marker({
+        position: pos,
+        map: map
+    });
+    
+    map.panTo(pos);
 }
 
 /**
@@ -51,6 +68,7 @@ function getDetail(id) {
         Galleria.loadTheme('libs/galleria/themes/classic/galleria.classic.min.js');
         Galleria.run('#detail-images');
 
+        showMarker(r.position.x, r.position.y);
     });
 }
 
