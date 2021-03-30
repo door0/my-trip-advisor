@@ -6,7 +6,7 @@ $(function() {
 
     getDetail(id);
 
-    //showMap();
+    showMap();
 })
 
 /**
@@ -35,7 +35,7 @@ function showMarker(lat, lng) {
         position: pos,
         map: map
     });
-    
+
     map.panTo(pos);
 }
 
@@ -69,6 +69,33 @@ function getDetail(id) {
         Galleria.run('#detail-images');
 
         showMarker(r.position.x, r.position.y);
+    
+
+
+        /**
+         * 쿠키에 데이터 저장하기
+         */
+        $('.btn-register').click(function() {
+            var myTrips = Cookies.getJSON('MYTRIPS');
+
+            //존재하지 않을 경우 빈 배열로 초기화
+            if(!myTrips) 
+                myTrips = [];
+                
+            
+            //여행지를 myTrips에 추가
+            myTrips.push({
+                id: id,
+                name: r.name,
+                cityName: r.cityName,
+                x: r.position.x,
+                y: r.position.y
+            });
+
+        Cookies.set('MYTRIPS', myTrips);
+
+        alert('여행지가 등록되었습니다!');
+        });
     });
 }
 
